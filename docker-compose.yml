@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        # volumes are sort of reference from the container to folders in your local machin
+        volumes:
+            # do not map this app/node_modules in the container to any folder outside the container (way to exclude this folder)
+            - /app/nodes_modules
+            # map all from frontend folder to /app : syntax:  folder in local path : folder in the container
+            - .:/app
+        stdin_open: true
+
+    tests:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/nodes_modules
+            - .:/app
+        command: ["npm", "run", "test"]
