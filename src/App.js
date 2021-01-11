@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import aime from '../public/images/aime';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <img src={aime} alt="aime" />
       </header>
     </div>
   );
