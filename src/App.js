@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import aime from '../public/images/aime';
+import aime from '../public/images/aime2';
 import './App.css';
 
 function App() {
