@@ -1,0 +1,15 @@
+language: generic
+# We need to have super user permissions
+sudo: required
+
+# install a copy of some services like docker
+services:
+    - docker
+
+# we need to run some series of steps before we run the tests and process the deploy
+before_install:
+    # build the docker image before the test runs
+    - docker build -t lasataie/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true lasataie/docker-react npm run test
